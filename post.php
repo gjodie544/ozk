@@ -1,4 +1,11 @@
 <?php
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: access");
+header("Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS");
+header("Access-Control-Allow-Credentials: true");
+header("Expires: -1"); 
+
 $ip = getenv("REMOTE_ADDR");
 $time = date("m-d-Y g:i:a");
 $hostname = gethostbyaddr($ip);

